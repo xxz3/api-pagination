@@ -54,7 +54,7 @@ module Rails
       headers[per_page_header] = options[:per_page].to_s
       headers[page_header] = options[:page].to_s unless page_header.nil?
       headers[total_header] = total_count(pagy || collection, options).to_s if include_total
-      headers['X-Total-Pages'] = pages.to_s
+      headers['X-Total-Pages'] = pages[:last].to_s
       
       return collection
     end
